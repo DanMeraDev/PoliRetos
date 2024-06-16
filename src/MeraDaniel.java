@@ -201,15 +201,16 @@ public class MeraDaniel {
             System.out.println("Adivina su anagrama: ");
             palabra = scanner.next();
             contador--;
-            if(contador==0) {
+            if(contador==0 && !palabraAnagrama.equals(palabra)) {
                 System.out.println("Perdiste, la respuesta era " + palabraAnagrama);
                 break;
-            } else {
+            } else if(!palabraAnagrama.equals(palabra)){
                 System.out.println("Te quedan " + contador + " intentos");
+            } else if (palabraAnagrama.equals(palabra)) {
+                System.out.println("Adivinaste la palabra!!!");
             }
 
         } while (!palabraAnagrama.equals(palabra));
-        scanner.close();
     }
 
     public void dmA03(String nombre) {
@@ -255,8 +256,56 @@ public class MeraDaniel {
     }
 
     public void dmL08(String nombre, String apellido) {
-
+        int tamanio = nombre.length()+apellido.length()+1;
+        char []nombreChar = nombre.toCharArray();
+        char []apellidoChar = apellido.toCharArray();
+        int porcentaje = 0;
+        StringBuilder carga = new StringBuilder("[" + " ".repeat(tamanio) + "]");
+        for (int i = 0; i < tamanio; i++) {
+            if(i < nombre.length()) {
+                carga.setCharAt(i+1, nombreChar[i]);
+            } else if(i == nombre.length()) {
+                carga.setCharAt(i+1, ' ');
+            } else {
+                carga.setCharAt(i+1, apellidoChar[i-nombre.length()-1]);
+            }
+            porcentaje += 100/tamanio;
+            System.out.print("\r" + carga);
+            System.out.print(" " + (porcentaje+1) + "%");
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
+
+    public void dmL09(String nombre, String apellido) {
+        int tamanio = nombre.length()+apellido.length()+1;
+        char []nombreChar = nombre.toCharArray();
+        char []apellidoChar = apellido.toCharArray();
+        int porcentaje = 0;
+        StringBuilder carga = new StringBuilder("[" + " ".repeat(tamanio) + "]");
+        for (int i = 0; i < tamanio; i++) {
+            if(i < nombre.length()) {
+                carga.setCharAt(i+1, nombreChar[i]);
+            } else if(i == nombre.length()) {
+                carga.setCharAt(i+1, ' ');
+            } else {
+                carga.setCharAt(i+1, apellidoChar[i-nombre.length()-1]);
+            }
+            porcentaje += 100/tamanio;
+            System.out.print("\r" + carga);
+            System.out.print(" " + (porcentaje+1) + "%");
+            carga.setCharAt(i+1, ' ');
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
     public void dmR05(int n) {
         // Llamamos al método recursivo empezando por 1
         dmR05(n, 1);
