@@ -1,8 +1,11 @@
 import java.util.Scanner;
 
 public class App {
+
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) throws Exception {
+        JarrinHelen jh = new JarrinHelen();
+        jh.jhPoliretos();
         MeraDaniel m= new MeraDaniel();
         System.out.print("Ingrese un tamano para las series: ");
         try {
