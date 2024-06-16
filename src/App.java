@@ -148,6 +148,8 @@ public class App {
             System.out.println("Ingrese los dos numeros a multiplicarse");
             int msmultiplicacion = msSeries.multiplicacionRecursiva(msnumero, msnumeros);
             System.out.println("La multiplicación de " + msnumero + " y " + msnumeros + " es: " + msmultiplicacion);
+        } catch (Exception e) {
+            e.getMessage();
         }
   
   
@@ -216,8 +218,8 @@ public class App {
         System.out.println("Ingrese una frase: ");
         String frase = sc.nextLine();
         System.out.println("Ingrese el caracter a eliminar de su frase");
-        char caracter = (sc.nextLine()).charAt(0);
-        m.dmC07(frase, caracter);
+        char caracterFrase = (sc.nextLine()).charAt(0);
+        m.dmC07(frase, caracterFrase);
         m.dmC08();
         System.out.println("Ingrese su nombre: ");
         String nombre = sc.nextLine();
