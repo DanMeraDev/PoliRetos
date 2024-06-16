@@ -4,6 +4,10 @@ public class App {
 
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) throws Exception {
+      // Parte Alvaro Montalvan
+        MontalvanAlvaro p = new MontalvanAlvaro();
+        p.poliRetos();
+      
       // Shirley
     try {
             MaldonadoShirley msSeries= new MaldonadoShirley();
